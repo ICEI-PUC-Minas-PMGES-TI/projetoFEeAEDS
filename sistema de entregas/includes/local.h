@@ -1,5 +1,6 @@
 #ifndef LOCAL_H
 #define LOCAL_H
+#define MAX_LOCAIS 100
 
 typedef struct {
     char nome[50];

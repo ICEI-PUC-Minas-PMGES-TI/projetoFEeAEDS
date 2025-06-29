@@ -1,5 +1,6 @@
 #ifndef PEDIDO_H
 #define PEDIDO_H
+#define MAX_PEDIDOS 100
 
 typedef struct {
     int id;

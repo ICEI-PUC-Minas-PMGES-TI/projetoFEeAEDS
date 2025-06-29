@@ -1,5 +1,6 @@
 #ifndef VEICULO_H
 #define VEICULO_H
+#define MAX_VEICULOS 100
 
 typedef struct {
     char placa[10];

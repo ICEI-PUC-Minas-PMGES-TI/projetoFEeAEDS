@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 #include "local.h"
 
 void cadastrarLocal(Local locais[], int *numLocais) {
@@ -22,34 +21,35 @@ void listarLocais(Local locais[], int numLocais) {
         printf("%d - %s (%.2f, %.2f)\n", i, locais[i].nome, locais[i].x, locais[i].y);
     }
 }
+
 void atualizarLocal(Local locais[], int numLocais) {
-    int i;
-    printf("Índice do local a atualizar: ");
-    scanf("%d", &i);
-    if (i < 0 || i >= numLocais) {
-        printf("Índice inválido!\n");
+    int id;
+    printf("ID do local para atualizar: ");
+    scanf("%d", &id);
+    if (id < 0 || id >= numLocais) {
+        printf("ID inválido!\n");
         return;
     }
     printf("Novo nome: ");
-    scanf(" %[^\n]", locais[i].nome);
+    scanf(" %[^\n]", locais[id].nome);
     printf("Nova coordenada X: ");
-    scanf("%f", &locais[i].x);
+    scanf("%f", &locais[id].x);
     printf("Nova coordenada Y: ");
-    scanf("%f", &locais[i].y);
-    printf("Local atualizado com sucesso!\n");
+    scanf("%f", &locais[id].y);
+    printf("Local atualizado!\n");
 }
 
 void removerLocal(Local locais[], int *numLocais) {
-    int i;
-    printf("Índice do local a remover: ");
-    scanf("%d", &i);
-    if (i < 0 || i >= *numLocais) {
-        printf("Índice inválido!\n");
+    int id;
+    printf("ID do local para remover: ");
+    scanf("%d", &id);
+    if (id < 0 || id >= *numLocais) {
+        printf("ID inválido!\n");
         return;
     }
-    for (int j = i; j < *numLocais - 1; j++) {
-        locais[j] = locais[j + 1];
+    for (int i = id; i < *numLocais - 1; i++) {
+        locais[i] = locais[i + 1];
     }
     (*numLocais)--;
-    printf("Local removido com sucesso!\n");
+    printf("Local removido!\n");
 }
