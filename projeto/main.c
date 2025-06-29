@@ -12,3 +12,9 @@ Veiculo veiculos[MAX_VEICULOS];
 Pedido pedidos[MAX_PEDIDOS];
 
 int numLocais = 0, numVeiculos = 0, numPedidos = 0;
+void menu() {
+    int opcao;
+    do {
+        printf("\\n==== Sistema de Logística de Entrega de Mercadorias (SLEM) ====");
+        printf("\\n1. Cadastrar Local");
+        printf("\\n2. Listar Locais");
