@@ -31,4 +31,11 @@ void menu() {
         printf("\\n0. Sair");
         printf("\\nEscolha: ");
         scanf("%d", &opcao);
-        
+        switch(opcao) {
+            case 1: cadastrarLocal(locais, &numLocais); break;
+            case 2: listarLocais(locais, numLocais); break;
+            case 3: atualizarLocal(locais, numLocais); break;
+            case 4: removerLocal(locais, &numLocais); break;
+            case 5: cadastrarVeiculo(veiculos, &numVeiculos); break;
+            case 6: listarVeiculos(veiculos, numVeiculos); break;
+            case 7: atualizarVeiculo(veiculos, numVeiculos); break;
