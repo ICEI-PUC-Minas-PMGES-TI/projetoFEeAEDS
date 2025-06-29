@@ -39,3 +39,17 @@ void menu() {
             case 5: cadastrarVeiculo(veiculos, &numVeiculos); break;
             case 6: listarVeiculos(veiculos, numVeiculos); break;
             case 7: atualizarVeiculo(veiculos, numVeiculos); break;
+            case 8: removerVeiculo(veiculos, &numVeiculos); break;
+            case 9: cadastrarPedido(pedidos, &numPedidos); break;
+            case 10: listarPedidos(pedidos, numPedidos); break;
+            case 11: atualizarPedido(pedidos, numPedidos); break;
+            case 12: removerPedido(pedidos, &numPedidos); break;
+            case 0: printf("Saindo...\\n"); break;
+            default: printf("Opção inválida!\\n");
+        }
+    } while (opcao != 0);
+}
+int main() {
+    menu();
+    return 0;
+}
