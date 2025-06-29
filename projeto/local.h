@@ -6,4 +6,8 @@ typedef struct {
 float x;
     float y;
 } Local;
+void cadastrarLocal(Local locais[], int *numLocais);
+void listarLocais(Local locais[], int numLocais);
+void atualizarLocal(Local locais[], int numLocais);
+void removerLocal(Local locais[], int *numLocais);
 #endif

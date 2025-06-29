@@ -7,4 +7,8 @@ typedef struct {
     int status;
     int idLocalAtual;
     } Veiculo;
+    void cadastrarVeiculo(Veiculo veiculos[], int *numVeiculos);
+void listarVeiculos(Veiculo veiculos[], int numVeiculos);
+void atualizarVeiculo(Veiculo veiculos[], int numVeiculos);
+void removerVeiculo(Veiculo veiculos[], int *numVeiculos);
     #endif
