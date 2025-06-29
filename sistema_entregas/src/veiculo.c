@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "veiculo.h"
+#include "../includes/veiculo.h"
 
 void cadastrarVeiculo(Veiculo veiculos[], int *numVeiculos) {
     if (*numVeiculos >= MAX_VEICULOS) {

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "local.h"
+#include "../includes/local.h"
 
 void cadastrarLocal(Local locais[], int *numLocais) {
     if (*numLocais >= MAX_LOCAIS) {

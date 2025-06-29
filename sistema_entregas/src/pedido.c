@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "pedido.h"
+#include "../includes/pedido.h"
 
 void cadastrarPedido(Pedido pedidos[], int *numPedidos) {
     if (*numPedidos >= MAX_PEDIDOS) {

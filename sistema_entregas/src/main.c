@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "local.h"
-#include "veiculo.h"
-#include "pedido.h"
+#include "../includes/local.h"
+#include "../includes/veiculo.h"
+#include "../includes/pedido.h"
 
 #define MAX_LOCAIS 100
 #define MAX_VEICULOS 100
