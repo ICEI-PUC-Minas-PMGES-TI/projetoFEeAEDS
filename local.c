@@ -22,3 +22,34 @@ void listarLocais(Local locais[], int numLocais) {
         printf("%d - %s (%.2f, %.2f)\n", i, locais[i].nome, locais[i].x, locais[i].y);
     }
 }
+void atualizarLocal(Local locais[], int numLocais) {
+    int i;
+    printf("Índice do local a atualizar: ");
+    scanf("%d", &i);
+    if (i < 0 || i >= numLocais) {
+        printf("Índice inválido!\n");
+        return;
+    }
+    printf("Novo nome: ");
+    scanf(" %[^\n]", locais[i].nome);
+    printf("Nova coordenada X: ");
+    scanf("%f", &locais[i].x);
+    printf("Nova coordenada Y: ");
+    scanf("%f", &locais[i].y);
+    printf("Local atualizado com sucesso!\n");
+}
+
+void removerLocal(Local locais[], int *numLocais) {
+    int i;
+    printf("Índice do local a remover: ");
+    scanf("%d", &i);
+    if (i < 0 || i >= *numLocais) {
+        printf("Índice inválido!\n");
+        return;
+    }
+    for (int j = i; j < *numLocais - 1; j++) {
+        locais[j] = locais[j + 1];
+    }
+    (*numLocais)--;
+    printf("Local removido com sucesso!\n");
+}
