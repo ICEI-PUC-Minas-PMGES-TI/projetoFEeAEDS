@@ -40,16 +40,24 @@ void atualizarLocal(Local locais[], int numLocais) {
 }
 
 void removerLocal(Local locais[], int *numLocais) {
+    listarLocais(locais, *numLocais);  
+
     int id;
-    printf("ID do local para remover: ");
-    scanf("%d", &id);
+    printf("Digite o ID do local a remover: ");
+    while (scanf("%d", &id) != 1) {
+        printf("Entrada inválida. Digite um número inteiro: ");
+        while (getchar() != '\n');
+    }
+
     if (id < 0 || id >= *numLocais) {
         printf("ID inválido!\n");
         return;
     }
+
     for (int i = id; i < *numLocais - 1; i++) {
         locais[i] = locais[i + 1];
     }
+
     (*numLocais)--;
-    printf("Local removido!\n");
+    printf("Local removido com sucesso!\n");
 }
