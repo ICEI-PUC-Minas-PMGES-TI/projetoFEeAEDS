@@ -3,6 +3,7 @@
 #include "../includes/veiculo.h"
 #include "../includes/pedido.h"
 
+
 #define MAX_LOCAIS 100
 #define MAX_VEICULOS 100
 #define MAX_PEDIDOS 100
@@ -12,10 +13,11 @@ Veiculo veiculos[MAX_VEICULOS];
 Pedido pedidos[MAX_PEDIDOS];
 
 int numLocais = 0, numVeiculos = 0, numPedidos = 0;
+
 void menu() {
     int opcao;
     do {
-    printf("\n==== Sistema de Logística de Entrega de Mercadorias (SLEM) ====");
+        printf("\n==== Sistema de Logística de Entrega de Mercadorias (SLEM) ====");
         printf("\n1. Cadastrar Local");
         printf("\n2. Listar Locais");
         printf("\n3. Atualizar Local");
@@ -31,6 +33,7 @@ void menu() {
         printf("\n0. Sair");
         printf("\nEscolha: ");
         scanf("%d", &opcao);
+
         switch(opcao) {
             case 1: cadastrarLocal(locais, &numLocais); break;
             case 2: listarLocais(locais, numLocais); break;
@@ -44,11 +47,12 @@ void menu() {
             case 10: listarPedidos(pedidos, numPedidos); break;
             case 11: atualizarPedido(pedidos, numPedidos); break;
             case 12: removerPedido(pedidos, &numPedidos); break;
-            case 0: printf("Saindo...\\n"); break;
-            default: printf("Opção inválida!\\n");
+            case 0: printf("Saindo...\n"); break;
+            default: printf("Opção inválida!\n"); break;
         }
     } while (opcao != 0);
 }
+
 int main() {
     menu();
     return 0;
