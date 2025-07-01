@@ -17,7 +17,7 @@ int numLocais = 0, numVeiculos = 0, numPedidos = 0;
 void menu() {
     int opcao;
     do {
-        printf("\n==== Sistema de Logística de Entrega de Mercadorias (SLEM) ====");
+        printf("\n==== Sistema de Logistica de Entrega de Mercadorias ====");
         printf("\n1. Cadastrar Local");
         printf("\n2. Listar Locais");
         printf("\n3. Atualizar Local");
@@ -30,6 +30,8 @@ void menu() {
         printf("\n10. Listar Pedidos");
         printf("\n11. Atualizar Pedido");
         printf("\n12. Remover Pedido");
+        printf("\\n13. Associar pedido a rota e veículo");
+        printf("\\n14. Finalizar entrega");
         printf("\n0. Sair");
         printf("\nEscolha: ");
         scanf("%d", &opcao);
@@ -47,6 +49,8 @@ void menu() {
             case 10: listarPedidos(pedidos, numPedidos); break;
             case 11: atualizarPedido(pedidos, numPedidos); break;
             case 12: removerPedido(pedidos, &numPedidos); break;
+            case 13: associarPedidoRotaVeiculo(pedidos, numPedidos, locais, numLocais, veiculos, numVeiculos); break;
+            case 14: finalizarEntrega(veiculos, numVeiculos); break;
             case 0: printf("Saindo...\n"); break;
             default: printf("Opção inválida!\n"); break;
         }
