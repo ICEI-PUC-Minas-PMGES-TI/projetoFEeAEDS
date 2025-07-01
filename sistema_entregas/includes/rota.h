@@ -9,5 +9,6 @@ float calcularDistancia(Local origem, Local destino);
 void calcularRota(Local locais[], int numLocais);
 void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[], int numLocais, Veiculo veiculos[], int numVeiculos);
 void finalizarEntrega(Veiculo veiculos[], int numVeiculos);
+int buscarVeiculoMaisProximo(Veiculo veiculos[], int numVeiculos, Local locais[], int idOrigem);
 
 #endif
