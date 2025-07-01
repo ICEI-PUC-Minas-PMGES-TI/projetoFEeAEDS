@@ -63,14 +63,13 @@ void carregarVeiculos(Veiculo veiculos[], int *numVeiculos) {
 }
 
 void carregarPedidos(Pedido pedidos[], int *numPedidos) {
-    FILE *f = fopen("pedidos.dat", "rb");
-    if (!f) {
-        printf("Nenhum backup de pedidos encontrado.\n");
+    FILE *f = fopen(nomeArquivo, "rb");
+    if (f == NULL) {
+        printf("Arquivo de pedidos não encontrado.\n");
         *numPedidos = 0;
         return;
     }
     fread(numPedidos, sizeof(int), 1, f);
     fread(pedidos, sizeof(Pedido), *numPedidos, f);
     fclose(f);
-    printf("Pedidos carregados com sucesso!\n");
 }
