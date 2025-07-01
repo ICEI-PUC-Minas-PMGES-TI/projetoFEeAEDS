@@ -25,7 +25,7 @@ void salvarVeiculos(Veiculo veiculos[], int numVeiculos) {
     printf("Veículos salvos com sucesso!\n");
 }
 
-void salvarPedidos(Pedido pedidos[], int numPedidos) {
+void salvarPedidos(Pedido pedidos[], int numPedidos, const char* nomeArquivo) {
     FILE *f = fopen(nomeArquivo, "wb");
     if (f == NULL) {
         printf("Erro ao abrir o arquivo para salvar pedidos.\n");
@@ -62,7 +62,7 @@ void carregarVeiculos(Veiculo veiculos[], int *numVeiculos) {
     printf("Veículos carregados com sucesso!\n");
 }
 
-void carregarPedidos(Pedido pedidos[], int *numPedidos) {
+void carregarPedidos(Pedido pedidos[], int *numPedidos, const char* nomeArquivo) {
     FILE *f = fopen(nomeArquivo, "rb");
     if (f == NULL) {
         printf("Arquivo de pedidos não encontrado.\n");
