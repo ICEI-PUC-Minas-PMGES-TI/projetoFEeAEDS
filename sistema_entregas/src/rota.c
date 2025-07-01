@@ -66,7 +66,18 @@ void finalizarEntrega(Veiculo veiculos[], int numVeiculos) {
     scanf("%s", placa);
 
     for (int i = 0; i < numVeiculos; i++) {
-        if (strcmp(veiculos[i].placa, placa) == 0) {
+        int iguais = 1;
+        for (int j = 0; j < 10; j++) {
+            if (veiculos[i].placa[j] != placa[j]) {
+                iguais = 0;
+                break;
+            }
+            if (veiculos[i].placa[j] == '\0' && placa[j] == '\0') {
+                break;
+            }
+        }
+
+        if (iguais) {
             veiculos[i].status = 0;
             printf("Entrega finalizada! Veículo %s está disponível.\n", veiculos[i].placa);
             return;
