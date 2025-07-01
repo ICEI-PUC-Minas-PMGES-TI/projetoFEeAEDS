@@ -43,16 +43,12 @@ void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[],
     }
 
     // Mostrar veículos disponíveis
-    int veiculoId = -1;
-    for (int i = 0; i < numVeiculos; i++) {
-        if (veiculos[i].status == 0) {
-            printf("Veículo disponível: %d - %s\n", i, veiculos[i].placa);
-            if (veiculoId == -1) veiculoId = i; // pega o primeiro disponível
-        }
-    }
+      int idVeiculo;
+    printf("Digite o ID do veículo que deseja associar ao pedido: ");
+    scanf("%d", &idVeiculo);
 
-    if (veiculoId == -1) {
-        printf("Nenhum veículo disponível!\n");
+    if (idVeiculo < 0  idVeiculo >= numVeiculos  veiculos[idVeiculo].status != 0) {
+        printf("ID inválido ou veículo não disponível!\n");
         return;
     }
 
