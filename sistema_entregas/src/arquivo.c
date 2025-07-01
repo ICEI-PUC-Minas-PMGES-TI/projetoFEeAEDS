@@ -26,15 +26,14 @@ void salvarVeiculos(Veiculo veiculos[], int numVeiculos) {
 }
 
 void salvarPedidos(Pedido pedidos[], int numPedidos) {
-    FILE *f = fopen("pedidos.dat", "wb");
-    if (!f) {
-        printf("Erro ao salvar pedidos!\n");
+    FILE *f = fopen(nomeArquivo, "wb");
+    if (f == NULL) {
+        printf("Erro ao abrir o arquivo para salvar pedidos.\n");
         return;
     }
     fwrite(&numPedidos, sizeof(int), 1, f);
     fwrite(pedidos, sizeof(Pedido), numPedidos, f);
     fclose(f);
-    printf("Pedidos salvos com sucesso!\n");
 }
 
 void carregarLocais(Local locais[], int *numLocais) {
