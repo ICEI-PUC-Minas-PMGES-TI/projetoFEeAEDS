@@ -43,14 +43,20 @@ void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[],
     }
 
     // Mostrar veículos disponíveis
-      int idVeiculo;
+    int idVeiculo;
     printf("Digite o ID do veículo que deseja associar ao pedido: ");
     scanf("%d", &idVeiculo);
 
-    if (idVeiculo < 0  idVeiculo >= numVeiculos  veiculos[idVeiculo].status != 0) {
-        printf("ID inválido ou veículo não disponível!\n");
-        return;
+    if (idVeiculo < 0 || idVeiculo >= numVeiculos) {
+    printf("ID inválido!\n");
+    return;
     }
+
+    if (veiculos[idVeiculo].status != 0) {
+    printf("Veículo não disponível!\n");
+    return;
+    }
+
 
     // Calcular distância
     float distancia = calcularDistancia(locais[pedidos[pedidoId].idOrigem], locais[pedidos[pedidoId].idDestino]);
