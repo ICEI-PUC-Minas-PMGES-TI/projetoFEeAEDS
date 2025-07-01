@@ -34,6 +34,8 @@ void menu() {
         printf("\n12. Remover Pedido");
         printf("\n13. Associar pedido a rota e veiculo");
         printf("\n14. Finalizar entrega");
+        printf("\n15. Salvar backup");
+        printf("\n16. Carregar backup");
         printf("\n0. Sair");
         printf("\nEscolha: ");
         scanf("%d", &opcao);
