@@ -87,3 +87,20 @@ void finalizarEntrega(Veiculo veiculos[], int numVeiculos) {
     veiculos[idVeiculo].status = 0;
     printf("Entrega finalizada! Veículo ID %d agora está disponível.\n", idVeiculo);
 }
+
+int buscarVeiculoMaisProximo(Veiculo veiculos[], int numVeiculos, Local locais[], int idOrigem) {
+    float menorDistancia = -1;
+    int indiceMaisProximo = -1;
+
+    for (int i = 0; i < numVeiculos; i++) {
+        if (veiculos[i].status == 0) {  // Livre
+            float d = calcularDistancia(locais[veiculos[i].idLocalAtual], locais[idOrigem]);
+            if (menorDistancia == -1 || d < menorDistancia) {
+                menorDistancia = d;
+                indiceMaisProximo = i;
+            }
+        }
+    }
+
+    return indiceMaisProximo;
+}
