@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "../includes/pedido.h"
+#include <stdlib.h>
 
 void cadastrarPedido(Pedido pedidos[], int *numPedidos) {
     if (*numPedidos >= MAX_PEDIDOS) {
@@ -76,4 +77,16 @@ void removerPedido(Pedido pedidos[], int *numPedidos) {
 
     (*numPedidos)--;
     printf("Pedido removido com sucesso!\n");
+}
+
+void salvarPedidos(Pedido pedidos[], int numPedidos, const char* nomeArquivo) {
+    FILE *f = fopen(nomeArquivo, "wb");
+    if (f == NULL) {
+        perror("Erro ao abrir arquivo para salvar pedidos");
+        return;
+    }
+    fwrite(&numPedidos, sizeof(int), 1, f);
+    fwrite(pedidos, sizeof(Pedido), numPedidos, f);
+    fclose(f);
+    printf("Pedidos salvos com sucesso!\n");
 }
