@@ -43,38 +43,19 @@ void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[],
         return;
     }
 
-    printf("Veículos disponíveis:\n");
-    for (int i = 0; i < numVeiculos; i++) {
-        if (veiculos[i].status == 0) {
-            printf("ID do Veículo: %d | Local atual: %d | Status: Livre\n", i, veiculos[i].idLocalAtual);
-        }
-    }
+    float distancia = calcularDistancia(locais[idOrigem], locais[idDestino]);
 
-    // Mostrar veículos disponíveis
-    int idVeiculo;
-    printf("Digite o ID do veículo que deseja associar ao pedido: ");
-    scanf("%d", &idVeiculo);
+    printf("Pedido ID %d:\n", pedidoId);
+    printf("- Veículo escolhido: %d\n", idVeiculo);
+    printf("- Origem: %d\n", idOrigem);
+    printf("- Destino: %d\n", idDestino);
+    printf("- Distância calculada: %.2f km\n", distancia);
 
-    if (idVeiculo < 0 || idVeiculo >= numVeiculos) {
-    printf("ID inválido!\n");
-    return;
-    }
+    // Atualiza o veículo
+    veiculos[idVeiculo].idLocalAtual = idDestino;
+    veiculos[idVeiculo].status = 1;  // Marcando como ocupado
 
-    if (veiculos[idVeiculo].status != 0) {
-    printf("Veículo não disponível!\n");
-    return;
-    }
-
-
-    // Calcular distância
-    float distancia = calcularDistancia(locais[pedidos[pedidoId].idOrigem], locais[pedidos[pedidoId].idDestino]);
-    printf("Distância calculada: %.2f km\n", distancia);
-
-    // Atualizar veículo
-    veiculos[idVeiculo].status = 1;
-    veiculos[idVeiculo].idLocalAtual = pedidos[pedidoId].idDestino;
-
-     printf("Pedido associado ao veículo ID %d. Veículo agora está ocupado.\n", idVeiculo);
+    printf("Veículo %d agora está em trânsito e foi movido para o local %d.\n", idVeiculo, idDestino);
 }
 
 void finalizarEntrega(Veiculo veiculos[], int numVeiculos) {
