@@ -3,6 +3,7 @@
 #include "../includes/veiculo.h"
 #include "../includes/pedido.h"
 #include "../includes/rota.h"
+#include "../includes/arquivo.h"
 
 
 #define MAX_LOCAIS 100
