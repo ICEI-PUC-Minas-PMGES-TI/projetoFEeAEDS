@@ -57,10 +57,10 @@ void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[],
     printf("Distância calculada: %.2f km\n", distancia);
 
     // Atualizar veículo
-    veiculos[veiculoId].status = 1;
-    veiculos[veiculoId].idLocalAtual = pedidos[pedidoId].idDestino;
+    veiculos[idVeiculo].status = 1;
+    veiculos[idVeiculo].idLocalAtual = pedidos[pedidoId].idDestino;
 
-    printf("Pedido associado ao veículo %s. Veículo agora está ocupado.\n", veiculos[veiculoId].placa);
+     printf("Pedido associado ao veículo ID %d. Veículo agora está ocupado.\n", idVeiculo);
 }
 
 void finalizarEntrega(Veiculo veiculos[], int numVeiculos) {
