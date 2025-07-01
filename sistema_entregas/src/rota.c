@@ -27,7 +27,7 @@ void calcularRota(Local locais[], int numLocais) {
 }
 
 void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[], int numLocais, Veiculo veiculos[], int numVeiculos) {
-    if (numPedidos == 0) {
+     if (numPedidos == 0) {
         printf("Nenhum pedido disponível!\n");
         return;
     }
