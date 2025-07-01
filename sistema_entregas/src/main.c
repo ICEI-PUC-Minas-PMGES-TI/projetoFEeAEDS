@@ -60,6 +60,11 @@ void menu() {
                 salvarVeiculos(veiculos, numVeiculos);
                 salvarPedidos(pedidos, numPedidos);
             break;
+            case 16:
+                carregarLocais(locais, &numLocais);
+                carregarVeiculos(veiculos, &numVeiculos);
+                carregarPedidos(pedidos, &numPedidos);
+            break;
             case 0: printf("Saindo...\n"); break;
             default: printf("Opção invalida!\n"); break;
         }
