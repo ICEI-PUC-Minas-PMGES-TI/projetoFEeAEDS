@@ -55,6 +55,11 @@ void menu() {
             case 12: removerPedido(pedidos, &numPedidos); break;
             case 13: associarPedidoRotaVeiculo(pedidos, numPedidos, locais, numLocais, veiculos, numVeiculos); break;
             case 14: finalizarEntrega(veiculos, numVeiculos); break;
+            case 15:
+                salvarLocais(locais, numLocais);
+                salvarVeiculos(veiculos, numVeiculos);
+                salvarPedidos(pedidos, numPedidos);
+            break;
             case 0: printf("Saindo...\n"); break;
             default: printf("Opção invalida!\n"); break;
         }
