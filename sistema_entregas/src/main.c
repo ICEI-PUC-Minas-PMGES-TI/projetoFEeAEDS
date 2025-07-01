@@ -2,6 +2,7 @@
 #include "../includes/local.h"
 #include "../includes/veiculo.h"
 #include "../includes/pedido.h"
+#include "../includes/rota.h"
 
 
 #define MAX_LOCAIS 100
@@ -22,16 +23,16 @@ void menu() {
         printf("\n2. Listar Locais");
         printf("\n3. Atualizar Local");
         printf("\n4. Remover Local");
-        printf("\n5. Cadastrar Veículo");
-        printf("\n6. Listar Veículos");
-        printf("\n7. Atualizar Veículo");
-        printf("\n8. Remover Veículo");
+        printf("\n5. Cadastrar Veiculo");
+        printf("\n6. Listar Veiculos");
+        printf("\n7. Atualizar Veiculo");
+        printf("\n8. Remover Veiculo");
         printf("\n9. Cadastrar Pedido");
         printf("\n10. Listar Pedidos");
         printf("\n11. Atualizar Pedido");
         printf("\n12. Remover Pedido");
-        printf("\\n13. Associar pedido a rota e veículo");
-        printf("\\n14. Finalizar entrega");
+        printf("\n13. Associar pedido a rota e veiculo");
+        printf("\n14. Finalizar entrega");
         printf("\n0. Sair");
         printf("\nEscolha: ");
         scanf("%d", &opcao);
@@ -52,7 +53,7 @@ void menu() {
             case 13: associarPedidoRotaVeiculo(pedidos, numPedidos, locais, numLocais, veiculos, numVeiculos); break;
             case 14: finalizarEntrega(veiculos, numVeiculos); break;
             case 0: printf("Saindo...\n"); break;
-            default: printf("Opção inválida!\n"); break;
+            default: printf("Opção invalida!\n"); break;
         }
     } while (opcao != 0);
 }

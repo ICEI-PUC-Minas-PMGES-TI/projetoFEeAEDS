@@ -27,7 +27,7 @@ void atualizarLocal(Local locais[], int numLocais) {
     printf("ID do local para atualizar: ");
     scanf("%d", &id);
     if (id < 0 || id >= numLocais) {
-        printf("ID inválido!\n");
+        printf("ID invalido!\n");
         return;
     }
     printf("Novo nome: ");
@@ -45,12 +45,12 @@ void removerLocal(Local locais[], int *numLocais) {
     int id;
     printf("Digite o ID do local a remover: ");
     while (scanf("%d", &id) != 1) {
-        printf("Entrada inválida. Digite um número inteiro: ");
+        printf("Entrada invalida. Digite um número inteiro: ");
         while (getchar() != '\n');
     }
 
     if (id < 0 || id >= *numLocais) {
-        printf("ID inválido!\n");
+        printf("ID invalido!\n");
         return;
     }
 

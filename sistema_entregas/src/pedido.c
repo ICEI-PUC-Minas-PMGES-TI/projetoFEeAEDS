@@ -17,7 +17,7 @@ void cadastrarPedido(Pedido pedidos[], int *numPedidos) {
 
     printf("Peso: ");
     while (scanf("%f", &pedidos[*numPedidos].peso) != 1) {
-        printf("Entrada inválida. Digite o peso (ex: 12.5): ");
+        printf("Entrada invalida. Digite o peso (ex: 12.5): ");
         while (getchar() != '\n'); // Limpa o buffer
     }
 
@@ -53,7 +53,7 @@ void atualizarPedido(Pedido pedidos[], int numPedidos) {
 
     printf("Novo peso: ");
     while (scanf("%f", &pedidos[i].peso) != 1) {
-        printf("Entrada inválida. Digite o peso (ex: 12.5): ");
+        printf("Entrada invalida. Digite o peso (ex: 12.5): ");
         while (getchar() != '\n');
     }
 
@@ -66,7 +66,7 @@ void removerPedido(Pedido pedidos[], int *numPedidos) {
     scanf("%d", &i);
 
     if (i < 0 || i >= *numPedidos) {
-        printf("ID inválido!\n");
+        printf("ID invalido!\n");
         return;
     }
 
