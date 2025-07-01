@@ -90,3 +90,15 @@ void salvarPedidos(Pedido pedidos[], int numPedidos, const char* nomeArquivo) {
     fclose(f);
     printf("Pedidos salvos com sucesso!\n");
 }
+
+void carregarPedidos(Pedido pedidos[], int *numPedidos, const char* nomeArquivo) {
+    FILE *f = fopen(nomeArquivo, "rb");
+    if (f == NULL) {
+        perror("Arquivo de pedidos não encontrado");
+        return;
+    }
+    fread(numPedidos, sizeof(int), 1, f);
+    fread(pedidos, sizeof(Pedido), *numPedidos, f);
+    fclose(f);
+    printf("Pedidos carregados com sucesso!\n");
+}
