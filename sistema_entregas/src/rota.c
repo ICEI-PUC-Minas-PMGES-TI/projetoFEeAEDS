@@ -32,8 +32,16 @@ void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[],
         return;
     }
 
-    int pedidoId = numPedidos - 1; // último pedido cadastrado
-    printf("Associando pedido ID %d...\n", pedidos[pedidoId].id);
+    int pedidoId = numPedidos - 1; // Último pedido cadastrado
+    int idOrigem = pedidos[pedidoId].idOrigem;
+    int idDestino = pedidos[pedidoId].idDestino;
+
+    int idVeiculo = buscarVeiculoMaisProximo(veiculos, numVeiculos, locais, idOrigem);
+
+    if (idVeiculo == -1) {
+        printf("Nenhum veículo disponível no momento!\n");
+        return;
+    }
 
     printf("Veículos disponíveis:\n");
     for (int i = 0; i < numVeiculos; i++) {
