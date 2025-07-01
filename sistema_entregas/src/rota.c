@@ -27,13 +27,20 @@ void calcularRota(Local locais[], int numLocais) {
 }
 
 void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[], int numLocais, Veiculo veiculos[], int numVeiculos) {
-     if (numPedidos == 0) {
+    if (numPedidos == 0) {
         printf("Nenhum pedido disponível!\n");
         return;
     }
 
     int pedidoId = numPedidos - 1; // último pedido cadastrado
     printf("Associando pedido ID %d...\n", pedidos[pedidoId].id);
+
+    printf("Veículos disponíveis:\n");
+    for (int i = 0; i < numVeiculos; i++) {
+        if (veiculos[i].status == 0) {
+            printf("ID do Veículo: %d | Local atual: %d | Status: Livre\n", i, veiculos[i].idLocalAtual);
+        }
+    }
 
     // Mostrar veículos disponíveis
     int veiculoId = -1;
