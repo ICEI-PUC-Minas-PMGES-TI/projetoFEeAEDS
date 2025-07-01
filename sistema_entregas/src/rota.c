@@ -64,27 +64,20 @@ void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[],
 }
 
 void finalizarEntrega(Veiculo veiculos[], int numVeiculos) {
-    char placa[10];
-    printf("Placa do veículo que finalizou entrega: ");
-    scanf("%s", placa);
+    int idVeiculo;
+    printf("Digite o ID do veículo que deseja associar ao pedido: ");
+    scanf("%d", &idVeiculo);
 
-    for (int i = 0; i < numVeiculos; i++) {
-        int iguais = 1;
-        for (int j = 0; j < 10; j++) {
-            if (veiculos[i].placa[j] != placa[j]) {
-                iguais = 0;
-                break;
-            }
-            if (veiculos[i].placa[j] == '\0' && placa[j] == '\0') {
-                break;
-            }
-        }
-
-        if (iguais) {
-            veiculos[i].status = 0;
-            printf("Entrega finalizada! Veículo %s está disponível.\n", veiculos[i].placa);
-            return;
-        }
+    if (idVeiculo < 0 || idVeiculo >= numVeiculos) {
+    printf("ID inválido! Fora do intervalo de veículos cadastrados.\n");
+    return;
     }
-    printf("Veículo não encontrado.\n");
+
+    if (veiculos[idVeiculo].status != 0) {
+    printf("Veículo não está disponível!\n");
+    return;
+    }
+
+    veiculos[idVeiculo].status = 0;
+    printf("Entrega finalizada! Veículo ID %d agora está disponível.\n", idVeiculo);
 }
