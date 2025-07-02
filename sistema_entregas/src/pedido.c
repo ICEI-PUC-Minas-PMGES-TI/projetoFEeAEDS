@@ -77,28 +77,3 @@ void removerPedido(Pedido pedidos[], int *numPedidos) {
 
     (*numPedidos)--;
     printf("Pedido removido com sucesso!\n");
-}
-
-void salvarPedidos(Pedido pedidos[], int numPedidos, const char* nomeArquivo) {
-    FILE *f = fopen(nomeArquivo, "wb");
-    if (f == NULL) {
-        perror("Erro ao abrir arquivo para salvar pedidos");
-        return;
-    }
-    fwrite(&numPedidos, sizeof(int), 1, f);
-    fwrite(pedidos, sizeof(Pedido), numPedidos, f);
-    fclose(f);
-    printf("Pedidos salvos com sucesso!\n");
-}
-
-void carregarPedidos(Pedido pedidos[], int *numPedidos, const char* nomeArquivo) {
-    FILE *f = fopen(nomeArquivo, "rb");
-    if (f == NULL) {
-        perror("Arquivo de pedidos não encontrado");
-        return;
-    }
-    fread(numPedidos, sizeof(int), 1, f);
-    fread(pedidos, sizeof(Pedido), *numPedidos, f);
-    fclose(f);
-    printf("Pedidos carregados com sucesso!\n");
-}
