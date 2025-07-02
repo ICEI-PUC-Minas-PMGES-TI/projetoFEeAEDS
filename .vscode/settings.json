@@ -1,6 +1,11 @@
 {
     "files.associations": {
-        "rota.h": "c"
+        "rota.h": "c",
+        "munit.h": "c",
+        "pedido.h": "c",
+        "veiculo.h": "c",
+        "local.h": "c"
     },
-    "C_Cpp.default.compilerPath": "C:/MinGW/bin/gcc.exe"
+    "C_Cpp.default.compilerPath": "C:/MinGW/bin/gcc.exe",
+    "C_Cpp.errorSquiggles": "disabled"
 }

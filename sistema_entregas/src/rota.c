@@ -4,6 +4,8 @@
 #include "../includes/pedido.h"
 #include "../includes/veiculo.h"
 #include "../includes/local.h"
+#include "../includes/globals.h"
+
 // Função que calcula a distância euclidiana entre dois locais
 float calcularDistancia(Local origem, Local destino) {
     float dx = origem.x - destino.x;

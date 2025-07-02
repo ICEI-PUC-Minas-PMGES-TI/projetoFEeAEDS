@@ -7,7 +7,7 @@ void salvarLocais(Local locais[], int numLocais) {
         printf("Erro ao salvar locais!\n");
         return;
     }
-    fwrite(&numLocais, sizeof(int), 1, f);
+   fwrite(&numLocais, sizeof(int), 1, f);
     fwrite(locais, sizeof(Local), numLocais, f);
     fclose(f);
     printf("Locais salvos com sucesso!\n");
@@ -56,7 +56,7 @@ void carregarVeiculos(Veiculo veiculos[], int *numVeiculos) {
         *numVeiculos = 0;
         return;
     }
-    fread(numVeiculos, sizeof(int), 1, f);
+  fread(numVeiculos, sizeof(int), 1, f);
     fread(veiculos, sizeof(Veiculo), *numVeiculos, f);
     fclose(f);
     printf("Veículos carregados com sucesso!\n");
@@ -69,7 +69,7 @@ void carregarPedidos(Pedido pedidos[], int *numPedidos, const char* nomeArquivo)
         *numPedidos = 0;
         return;
     }
-    fread(numPedidos, sizeof(int), 1, f);
+fread(numPedidos, sizeof(int), 1, f);
     fread(pedidos, sizeof(Pedido), *numPedidos, f);
     fclose(f);
 }

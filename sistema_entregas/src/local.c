@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "../includes/local.h"
-// Cadastra um novo local no vetor
+#include "../includes/globals.h"
+
 void cadastrarLocal(Local locais[], int *numLocais) {
     if (*numLocais >= MAX_LOCAIS) {
         printf("Limite de locais atingido!\n");

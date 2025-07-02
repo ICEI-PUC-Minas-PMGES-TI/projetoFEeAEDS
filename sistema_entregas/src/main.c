@@ -1,21 +1,12 @@
 #include <stdio.h>
+#include "../include/globals.h"
 #include "../includes/local.h"
 #include "../includes/veiculo.h"
 #include "../includes/pedido.h"
 #include "../includes/rota.h"
 #include "../includes/arquivo.h"
 
-// Definições das quantidades máximas de elementos
-#define MAX_LOCAIS 100
-#define MAX_VEICULOS 100
-#define MAX_PEDIDOS 100
-// Declaração dos arrays de structs que armazenam os dados do sistema
-Local locais[MAX_LOCAIS];
-Veiculo veiculos[MAX_VEICULOS];
-Pedido pedidos[MAX_PEDIDOS];
-// Variáveis que armazenam a quantidade atual de cada tipo de entidade
-int numLocais = 0, numVeiculos = 0, numPedidos = 0;
-// Função principal do menu de opções do sistema
+
 void menu() {
     int opcao;
     do  {     // Exibe o menu principal
