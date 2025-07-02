@@ -5,20 +5,20 @@
 #include "../includes/rota.h"
 #include "../includes/arquivo.h"
 
-
+// Definições das quantidades máximas de elementos
 #define MAX_LOCAIS 100
 #define MAX_VEICULOS 100
 #define MAX_PEDIDOS 100
-
+// Declaração dos arrays de structs que armazenam os dados do sistema
 Local locais[MAX_LOCAIS];
 Veiculo veiculos[MAX_VEICULOS];
 Pedido pedidos[MAX_PEDIDOS];
-
+// Variáveis que armazenam a quantidade atual de cada tipo de entidade
 int numLocais = 0, numVeiculos = 0, numPedidos = 0;
-
+// Função principal do menu de opções do sistema
 void menu() {
     int opcao;
-    do {
+    do  {     // Exibe o menu principal
         printf("\n==== Sistema de Logistica de Entrega de Mercadorias ====");
         printf("\n1. Cadastrar Local");
         printf("\n2. Listar Locais");
@@ -39,7 +39,7 @@ void menu() {
         printf("\n0. Sair");
         printf("\nEscolha: ");
         scanf("%d", &opcao);
-
+ // Executa a função correspondente à opção escolhida
         switch(opcao) {
             case 1: cadastrarLocal(locais, &numLocais); break;
             case 2: listarLocais(locais, numLocais); break;
@@ -68,10 +68,10 @@ void menu() {
             case 0: printf("Saindo...\n"); break;
             default: printf("Opção invalida!\n"); break;
         }
-    } while (opcao != 0);
+    } while (opcao != 0); // Repete até o usuário escolher sair
 }
-
+// Função principal que inicia o programa
 int main() {
-    menu();
-    return 0;
+    menu();// Chama o menu do sistema
+    return 0;// Encerra o programa
 }

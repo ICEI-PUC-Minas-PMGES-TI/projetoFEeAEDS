@@ -2,6 +2,7 @@
 #include "../includes/pedido.h"
 #include <stdlib.h>
 
+// Cadastra um novo pedido
 void cadastrarPedido(Pedido pedidos[], int *numPedidos) {
     if (*numPedidos >= MAX_PEDIDOS) {
         printf("Limite de pedidos atingido!\n");
@@ -25,7 +26,7 @@ void cadastrarPedido(Pedido pedidos[], int *numPedidos) {
     printf("Pedido cadastrado com sucesso!\n");
     (*numPedidos)++;
 }
-
+// Lista todos os pedidos registrados
 void listarPedidos(Pedido pedidos[], int numPedidos) {
     for (int i = 0; i < numPedidos; i++) {
         printf("%d - Origem: %d | Destino: %d | Peso: %.2f kg\n",
@@ -35,7 +36,7 @@ void listarPedidos(Pedido pedidos[], int numPedidos) {
                pedidos[i].peso);
     }
 }
-
+// Atualiza os dados de um pedido
 void atualizarPedido(Pedido pedidos[], int numPedidos) {
     int i;
     printf("ID do pedido a atualizar: ");
@@ -60,7 +61,7 @@ void atualizarPedido(Pedido pedidos[], int numPedidos) {
 
     printf("Pedido atualizado com sucesso!\n");
 }
-
+// Remove um pedido do vetor
 void removerPedido(Pedido pedidos[], int *numPedidos) {
     int i;
     printf("ID do pedido a remover: ");

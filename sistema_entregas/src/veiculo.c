@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "../includes/veiculo.h"
-
+// Cadastra um novo veículo
 void cadastrarVeiculo(Veiculo veiculos[], int *numVeiculos) {
     if (*numVeiculos >= MAX_VEICULOS) {
         printf("Limite de veículos atingido!\n");
@@ -17,7 +17,7 @@ void cadastrarVeiculo(Veiculo veiculos[], int *numVeiculos) {
     (*numVeiculos)++;
     printf("Veículo cadastrado com sucesso!\n");
 }
-
+// Lista todos os veículos
 void listarVeiculos(Veiculo veiculos[], int numVeiculos) {
     for (int i = 0; i < numVeiculos; i++) {
         printf("%d - %s | %s | Status: %s | Local: %d\n",
@@ -28,7 +28,7 @@ void listarVeiculos(Veiculo veiculos[], int numVeiculos) {
                veiculos[i].idLocalAtual);
     }
 }
-
+// Atualiza os dados de um veículo
 void atualizarVeiculo(Veiculo veiculos[], int numVeiculos) {
     int i;
     printf("Índice do veículo a atualizar: ");
@@ -47,7 +47,7 @@ void atualizarVeiculo(Veiculo veiculos[], int numVeiculos) {
     scanf("%d", &veiculos[i].idLocalAtual);
     printf("Veículo atualizado com sucesso!\n");
 }
-
+// Remove um veículo da lista
 void removerVeiculo(Veiculo veiculos[], int *numVeiculos) {
     int i;
     printf("Índice do veículo a remover: ");

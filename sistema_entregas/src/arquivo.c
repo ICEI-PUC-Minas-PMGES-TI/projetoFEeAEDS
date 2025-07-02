@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "../includes/arquivo.h"
-
+// Função para salvar os locais em um arquivo binário
 void salvarLocais(Local locais[], int numLocais) {
     FILE *f = fopen("locais.dat", "wb");
     if (!f) {
@@ -12,7 +12,7 @@ void salvarLocais(Local locais[], int numLocais) {
     fclose(f);
     printf("Locais salvos com sucesso!\n");
 }
-
+// Função para carregar os locais a partir de um arquivo binário
 void salvarVeiculos(Veiculo veiculos[], int numVeiculos) {
     FILE *f = fopen("veiculos.dat", "wb");
     if (!f) {
