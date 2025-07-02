@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "rota.h": "c"
-    }
+        "rota.h": "c",
+        "munit.h": "c",
+        "pedido.h": "c",
+        "veiculo.h": "c",
+        "local.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
