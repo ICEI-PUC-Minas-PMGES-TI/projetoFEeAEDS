@@ -61,9 +61,9 @@ void menu() {
                 salvarPedidos(pedidos, numPedidos, "pedidos.dat");
             break;
             case 16:
-                carregarLocais(locais, &numLocais);
-                carregarVeiculos(veiculos, &numVeiculos);
-                carregarPedidos(pedidos, &numPedidos, "pedidos.dat");
+                carregarLocais(locais, &numLocais,"../data/locais.dat");
+                carregarVeiculos(veiculos, &numVeiculos,"../data/veiculos.dat");
+                carregarPedidos(pedidos, &numPedidos, "../data/pedidos.dat");
             break;
             case 0: printf("Saindo...\n"); break;
             default: printf("Opção invalida!\n"); break;
