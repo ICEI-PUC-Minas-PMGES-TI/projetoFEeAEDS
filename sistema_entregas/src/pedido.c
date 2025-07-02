@@ -76,4 +76,4 @@ void removerPedido(Pedido pedidos[], int *numPedidos) {
     }
 
     (*numPedidos)--;
-    printf("Pedido removido com sucesso!\n");
+    printf("Pedido removido com sucesso!\n");}
