@@ -1,0 +1,13 @@
+Running test: /teste/pedido_valido
+Pedido ID 0 associado ao Veículo ID 0.
+Origem: 0, Destino: 1, Distância: 0.00 km
+Veículo 0 agora está ocupado e no local 1.
+✔ Passed
+Running test: /teste/veiculo_indisponivel
+Nenhum veículo disponível no momento!
+✔ Passed
+Running test: /teste/lista_veiculos_vazia
+Nenhum veículo disponível no momento!
+✔ Passed
+
+3 tests passed.
