@@ -61,8 +61,8 @@ void menu() {
                 salvarPedidos(pedidos, numPedidos, "pedidos.dat");
             break;
             case 16:
-                carregarLocais(locais, &numLocais,"../data/locais.dat");
-                carregarVeiculos(veiculos, &numVeiculos,"../data/veiculos.dat");
+                carregarLocais(locais, &numLocais);
+                carregarVeiculos(veiculos, &numVeiculos);
                 carregarPedidos(pedidos, &numPedidos, "../data/pedidos.dat");
             break;
             case 0: printf("Saindo...\n"); break;

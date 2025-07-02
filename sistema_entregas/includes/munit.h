@@ -4,9 +4,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef int MunitResult;
+typedef void* MunitParameter;
+
+#define MUNIT_OK 0
+#define MUNIT_TEST_OPTION_NONE 0
+#define MUNIT_SUITE_OPTION_NONE 0
+
+typedef MunitResult (*MunitTestFunc)(const MunitParameter[], void*);
+
 typedef struct {
     const char* name;
-    MunitResult (*test_func)(const MunitParameter[], void*);
+    MunitTestFunc test_func;
+    void* setup;
+    void* tear_down;
+    int options;
+    void* parameters;
 } MunitTest;
 
 typedef struct {
@@ -16,13 +29,6 @@ typedef struct {
     int iterations;
     int options_mask;
 } MunitSuite;
-
-#define MUNIT_OK 0
-#define MUNIT_TEST_OPTION_NONE 0
-#define MUNIT_SUITE_OPTION_NONE 0
-
-typedef int MunitResult;
-typedef void* MunitParameter;
 
 #define munit_assert_int(actual, op, expected) \
     if (!((actual) op (expected))) { \
@@ -41,8 +47,8 @@ int munit_suite_main(const MunitSuite* suite, void* user_data, int argc, char* a
             printf("✘ Failed\n");
         }
     }
-    printf("\n%d/%d tests passed.\n", passed, (int)(passed + 1));
+    printf("\n%d tests passed.\n", passed);
     return 0;
 }
 
-#endif 
+#endif
