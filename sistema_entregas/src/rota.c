@@ -3,6 +3,7 @@
 #include "../includes/rota.h"
 #include "../includes/pedido.h"
 #include "../includes/veiculo.h"
+#include "../includes/local.h"
 
 float calcularDistancia(Local origem, Local destino) {
     float dx = origem.x - destino.x;
@@ -10,20 +11,21 @@ float calcularDistancia(Local origem, Local destino) {
     return sqrt(dx * dx + dy * dy);
 }
 
-void calcularRota(Local locais[], int numLocais) {
-    int idOrigem, idDestino;
-    printf("ID da origem: ");
-    scanf("%d", &idOrigem);
-    printf("ID do destino: ");
-    scanf("%d", &idDestino);
+int buscarVeiculoMaisProximo(Veiculo veiculos[], int numVeiculos, Local locais[], int idOrigem) {
+    float menorDistancia = -1;
+    int idVeiculoMaisProximo = -1;
 
-    if (idOrigem < 0 || idOrigem >= numLocais || idDestino < 0 || idDestino >= numLocais) {
-        printf("IDs inválidos!\n");
-        return;
+    for (int i = 0; i < numVeiculos; i++) {
+        if (veiculos[i].status == 0) {  // disponível
+            float distancia = calcularDistancia(locais[veiculos[i].idLocalAtual], locais[idOrigem]);
+            if (menorDistancia == -1 || distancia < menorDistancia) {
+                menorDistancia = distancia;
+                idVeiculoMaisProximo = i;
+            }
+        }
     }
 
-    float distancia = calcularDistancia(locais[idOrigem], locais[idDestino]);
-    printf("Distância da rota: %.2f\n", distancia);
+    return idVeiculoMaisProximo;
 }
 
 void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[], int numLocais, Veiculo veiculos[], int numVeiculos) {
@@ -32,9 +34,14 @@ void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[],
         return;
     }
 
-    int pedidoId = numPedidos - 1; // Último pedido cadastrado
+    int pedidoId = numPedidos - 1; // Último pedido
     int idOrigem = pedidos[pedidoId].idOrigem;
     int idDestino = pedidos[pedidoId].idDestino;
+
+    if (idOrigem < 0 || idOrigem >= numLocais || idDestino < 0 || idDestino >= numLocais) {
+        printf("Origem ou destino do pedido são inválidos!\n");
+        return;
+    }
 
     int idVeiculo = buscarVeiculoMaisProximo(veiculos, numVeiculos, locais, idOrigem);
 
@@ -45,51 +52,25 @@ void associarPedidoRotaVeiculo(Pedido pedidos[], int numPedidos, Local locais[],
 
     float distancia = calcularDistancia(locais[idOrigem], locais[idDestino]);
 
-    printf("Pedido ID %d:\n", pedidoId);
-    printf("- Veículo escolhido: %d\n", idVeiculo);
-    printf("- Origem: %d\n", idOrigem);
-    printf("- Destino: %d\n", idDestino);
-    printf("- Distância calculada: %.2f km\n", distancia);
+    printf("Pedido ID %d associado ao Veículo ID %d.\n", pedidoId, idVeiculo);
+    printf("Origem: %d, Destino: %d, Distância: %.2f km\n", idOrigem, idDestino, distancia);
 
-    // Atualiza o veículo
     veiculos[idVeiculo].idLocalAtual = idDestino;
-    veiculos[idVeiculo].status = 1;  // Marcando como ocupado
+    veiculos[idVeiculo].status = 1;
 
-    printf("Veículo %d agora está em trânsito e foi movido para o local %d.\n", idVeiculo, idDestino);
+    printf("Veículo %d agora está ocupado e no local %d.\n", idVeiculo, idDestino);
 }
 
 void finalizarEntrega(Veiculo veiculos[], int numVeiculos) {
     int idVeiculo;
-    printf("Digite o ID do veículo que deseja associar ao pedido: ");
+    printf("ID do veículo que finalizou a entrega: ");
     scanf("%d", &idVeiculo);
 
-    if (idVeiculo < 0 || idVeiculo >= numVeiculos) {
-    printf("ID inválido! Fora do intervalo de veículos cadastrados.\n");
-    return;
-    }
-
-    if (veiculos[idVeiculo].status != 0) {
-    printf("Veículo não está disponível!\n");
-    return;
+    if (idVeiculo < 0 || idVeiculo >= numVeiculos || veiculos[idVeiculo].status != 1) {
+        printf("ID inválido ou veículo não está em entrega!\n");
+        return;
     }
 
     veiculos[idVeiculo].status = 0;
-    printf("Entrega finalizada! Veículo ID %d agora está disponível.\n", idVeiculo);
-}
-
-int buscarVeiculoMaisProximo(Veiculo veiculos[], int numVeiculos, Local locais[], int idOrigem) {
-    float menorDistancia = -1;
-    int indiceMaisProximo = -1;
-
-    for (int i = 0; i < numVeiculos; i++) {
-        if (veiculos[i].status == 0) {  // Livre
-            float d = calcularDistancia(locais[veiculos[i].idLocalAtual], locais[idOrigem]);
-            if (menorDistancia == -1 || d < menorDistancia) {
-                menorDistancia = d;
-                indiceMaisProximo = i;
-            }
-        }
-    }
-
-    return indiceMaisProximo;
+    printf("Entrega finalizada! Veículo %d agora está disponível.\n", idVeiculo);
 }
